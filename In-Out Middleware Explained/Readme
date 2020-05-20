@@ -1,0 +1,266 @@
+1------------------------------------------------
+    DELEGATE
+    maka hariyata function template ekak wage.
+    public delegate [return][fname](parameters);
+        meka hariyata interface ekak wage.deligate eka hadanna one function eka dakala.
+    ekiyanne 
+    
+    public class ClassA
+    {
+        public static void MethodA(string message)
+        {
+            Console.WriteLine("Called ClassA.MethodA() with parameter: "+ message);
+        }
+    }
+
+    public class ClassB
+    {
+        public static void MethodB(string message)
+        {
+            Console.WriteLine("Called ClassB.MethodB() with parameter: "+ message);
+        }
+    }
+
+    meke MethodA ekai MethodB ekai same. eka nisa ekata hariyana interface ekak hadana 
+    eka thmai tinne.
+    
+    public delegate void MyDelegate(string msg);
+        
+            delegate walata static hariyanne naha.
+    itapasse main eke gahanawa 
+
+    MyDelegate del = ClassA.MethodA;
+		del("Hello World");
+			
+		del = ClassB.MethodB;
+		del("Hello World");
+		
+		del = (string msg) => Console.WriteLine("Called lambda expression: " + msg);
+		del("Hello World");
+
+    pahalinma tina eka lambda function ekak.
+
+        mama programe eke gahala tinne thawath function ekakta parameter ekak karala.
+------------------------------------------------------------------------------------
+    ACTION
+    delegate wenuwata use karanna puluwan ekak thama ACTION kiyanne.
+    public static void functionwrapAction(Action parameter)
+        {
+            //pass karanne wrap type parameter ekak. 
+            //eka aththatama wrap type. 
+            //e kiyanne wrap kiyanne hariyata interface ekak wage.
+            //parameter() kiyala dunnama function ekak widihata use wenawa. 
+            System.Console.WriteLine("begin");
+            parameter();
+            System.Console.WriteLine("end");
+        }
+
+        meke main eke gahanne ethakota
+        functionwrapAction(first);
+
+            Action input denna one nama karanne 
+                Action<int,string> parameter 
+            use karana parameter ekata (function ekata) aniwa e widihatama(ekawa widihata)
+            parameters tinna one.
+---------------------------------------------------------------
+    middleware waladi use karana widiha thamai pennanna hadanne.
+
+    public void Try(Action parameter)
+        {   
+            try
+            {
+                System.Console.WriteLine("Just trying");
+                parameter();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+    
+    public static void functionwrapAction(Action parameter)
+        {
+            //pass karanne wrap type parameter ekak. 
+            //eka aththatama wrap type. 
+            //e kiyanne wrap kiyanne hariyata interface ekak wage.
+            //parameter() kiyala dunnama function ekak widihata use wenawa. 
+            System.Console.WriteLine("begin");
+            parameter();
+            System.Console.WriteLine("end");
+        }
+    
+    ekama input parameter eka tinne action walin.eka hinda karanna tinne 
+    apita try eke (action<action>) kiyala danna baha eka we are changing ability to change 
+    these function.
+        signature different.
+        ekanisa api karanne lambda expression eka use karanawa.
+----------------------------------------------------------------------------------------
+    ekama signature tina function use karana widiha thamai tinne mehema hadala.lambda function 
+    use karahama ekama type function wenas karanne nathima use karanna puluwan.
+
+    public static void TryfunctionwithInput(Action<int> parameter)
+        {   
+            try
+            {
+                System.Console.WriteLine("Just trying");
+                parameter(5);
+                System.Console.WriteLine("trying end");
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+    
+    meke ethakota one int parameter ekak tina function ekak thama use karanna one.
+
+    public static void firstwithinput(int i)
+        {
+            System.Console.WriteLine("firstwithinput function"+i);
+        }
+
+    me wage ekak thama ethakota use karanna one function eka.main eke tinne meka
+        TryfunctionwithInput(firstwithinput);
+            kiyana eka.
+        meka lambda function ekak widihata nam
+            wrapAction kiyana function eka edit karaganna one 
+-------------------------------------------------------------------------------------------
+2
+    tamawa tikak parameter ekka use karana hati thma kiyannna tinne.
+        mekedi api delegate use karanne naha.use karanne action function eka thamai.
+    
+    mekedi 
+         WrapFunction(FirstWithInput);
+            use karanna baha mokada WrapFunction eke kisiwa input ekak ganne naha eth FirstWithInput
+            kiyana eke input ekak tinawa.
+        eka hinda meka use karanawanaw api use karanne lambda function eka.
+
+            WrapFunction(()=>{FirstWithInput("pamal");});
+        middleware waradi meka crach ekak kiyala thmai kiyanne.eka neme apita karanna one.
+---------------------------------------------------------------------------------------------
+    WrapFunction(FirstWithInput) 
+        use karanawanaw ekdit ekak karanna one.
+            public static void WrapFunction(Action<string> parameter)
+        {
+            System.Console.WriteLine("begin WrapFunction");
+            parameter("sahan");
+            System.Console.WriteLine("end WrapFunction");
+        }
+
+        firstwithinput eke input ekak tina hinda karanna one WrapFunction eketh parameter
+        ekak dana eka.naththam use karanna baha.meke tina prashnayak thama apita denna baha 
+        athin hard code karanna thama sidda wela tinne.
+--------------------------------------------------------------------------------
+    input message ekak denna hadanne mehemai
+        public static void WrapFunction(string message,Action<string> parameter)
+        {
+            System.Console.WriteLine("begin WrapFunction");
+            parameter(message);
+            System.Console.WriteLine("end WrapFunction");
+        }
+
+         static void Main(string[] args)
+        {
+            WrapFunction("this is message",FirstWithInput);
+            
+        }
+---------------------------------------------------------------------------------
+    TryFunction eke use karanna one WrapFunction eke use karapu parameter e widihatama
+mokada middle ware eke sidda wenne ehemai.
+    TryFunction eka athule liyanakota try ekak ahulu liyanna one mokada naththam error 
+    paninawa.
+        TryFunction("trymessage",(message)=>{WrapFunction(message,FirstWithInput);});
+    mehema dunnata weketh lambda use karala tinawa.
+----------------------------------------------------------------------------------------
+    thawa try function ekakata use karahama
+         TryFunction2("try2message",
+            (message2)=>{TryFunction(message2,
+                (message)=>{WrapFunction(message,FirstWithInput);});});
+----------------------------------------------------------------------------------------
+    main eke hadana pipe eka
+         Action<string> pipe=(msg)=>{
+                TryFunction2(msg,(message2)=>
+                    {TryFunction(message2,(message)=>
+                        {WrapFunction(message,FirstWithInput);});});
+
+            };
+
+            pipe("this is pipe");
+
+        meka haduwahama out put eka enne.
+
+            begin TryFunction2
+            begin TryFunction
+            begin WrapFunction
+            this is from firstwithinput this is pipe
+            end WrapFunction
+            end TryFunction
+            end TryFunction2
+        
+        pipe ekak widihatama wada karanawa.bt wenna one mehema seen ekak newe.
+----------------------------------------------------------------------------------------
+3-WRAP AND TRY CONVERTED IN TO MIDDLEWARE.
+    mekedi hadanama abs class ekak pipe kiyala.
+
+    public abstract class Pipe
+        {
+            protected Action<string> _action;
+
+            public Pipe(Action<string> action)
+            {
+                _action = action;
+            }
+
+            public abstract void Handle(string s);
+        }
+
+        //wrap pipe 
+        class Wrap : Pipe
+        {
+            public Wrap(Action<string> action) : base(action) { }
+
+            public override void Handle(string s)
+            {
+                System.Console.WriteLine("begin WrapFunction");
+                _action(message);
+                //methanata enne ctor eken mokada obj hadanakota variable ekak pass wenna one
+                System.Console.WriteLine("end WrapFunction");
+            }
+
+
+        }
+
+        //try pipe
+        class Try : Pipe
+        {
+            public Try(Action<string> action) : base(action) { }
+
+            public override void Handle(string s)
+            {
+                try
+                {
+                    System.Console.WriteLine("begin TryFunction");
+                    _action(message);
+                    System.Console.WriteLine("end TryFunction");
+                }
+                catch (System.Exception)
+                {
+
+                    throw;
+                }
+            }
+
+
+        }
+
+    mekedi apita one widihata middleware haduwa.
+------------------------------------------------------------------------------------
+PIPE BUILDER
+    try eka wrap eka hadala tinne mewa danna BUILDER eka hadanna one.ctor eken 
+    karanne primary ekata mokadda karanne kiyala hadana eka.
+        meke me widihata pipe ekathu karanna tinne.
+    
+    itapasse apita one pipes okkoma register karanna one ewwa.
+

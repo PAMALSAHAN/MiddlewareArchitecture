@@ -1,0 +1,11 @@
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\In-Out Middleware Explained\main\bin\Debug\netcoreapp3.1\main.exe
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\In-Out Middleware Explained\main\bin\Debug\netcoreapp3.1\main.deps.json
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\In-Out Middleware Explained\main\bin\Debug\netcoreapp3.1\main.runtimeconfig.json
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\In-Out Middleware Explained\main\bin\Debug\netcoreapp3.1\main.runtimeconfig.dev.json
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\In-Out Middleware Explained\main\bin\Debug\netcoreapp3.1\main.dll
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\In-Out Middleware Explained\main\bin\Debug\netcoreapp3.1\main.pdb
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\In-Out Middleware Explained\main\obj\Debug\netcoreapp3.1\main.csprojAssemblyReference.cache
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\In-Out Middleware Explained\main\obj\Debug\netcoreapp3.1\main.AssemblyInfoInputs.cache
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\In-Out Middleware Explained\main\obj\Debug\netcoreapp3.1\main.AssemblyInfo.cs
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\In-Out Middleware Explained\main\obj\Debug\netcoreapp3.1\main.dll
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\In-Out Middleware Explained\main\obj\Debug\netcoreapp3.1\main.pdb
