@@ -119,6 +119,7 @@ namespace _3
 
             public Action<string> Build(){
                 var pipe=Activator.CreateInstance(_pipeTypes[0],_mainAction);
+                return null;
             }
         }
     }
