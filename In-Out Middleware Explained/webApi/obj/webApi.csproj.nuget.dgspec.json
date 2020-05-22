@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\In-Out Middleware Explained\\3\\3.csproj": {}
+    "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\In-Out Middleware Explained\\webApi\\webApi.csproj": {}
   },
   "projects": {
-    "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\In-Out Middleware Explained\\3\\3.csproj": {
+    "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\In-Out Middleware Explained\\webApi\\webApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\In-Out Middleware Explained\\3\\3.csproj",
-        "projectName": "3",
-        "projectPath": "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\In-Out Middleware Explained\\3\\3.csproj",
+        "projectUniqueName": "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\In-Out Middleware Explained\\webApi\\webApi.csproj",
+        "projectName": "webApi",
+        "projectPath": "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\In-Out Middleware Explained\\webApi\\webApi.csproj",
         "packagesPath": "C:\\Users\\Chamath\\.nuget\\packages\\",
-        "outputPath": "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\In-Out Middleware Explained\\3\\obj\\",
+        "outputPath": "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\In-Out Middleware Explained\\webApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -53,6 +53,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

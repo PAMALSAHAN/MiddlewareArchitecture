@@ -6,14 +6,20 @@ namespace _3
     {
         static void Main(string[] args)
         {
+            var pipe=new PipeBuilder(FirstWithInput)
+                                .AddPipe(typeof(Try))
+                                .AddPipe(typeof(Wrap))
+                                .Build();
             
+            pipe("hellow");
+        
         }
 
-        public void FirstWithInput(string s)
+        public static void FirstWithInput(string s)
         {
             System.Console.WriteLine("first with input" + s);
         }
-        public void SecondWithInput(string s)
+        public static void SecondWithInput(string s)
         {
             System.Console.WriteLine("second with input" + s);
         }
@@ -61,6 +67,7 @@ namespace _3
 
             public override void Handle(string s)
             {
+                System.Console.WriteLine(("wrapPipe::"));
                 System.Console.WriteLine("begin WrapFunction");
                 _action(s);
                 //methanata enne ctor eken mokada obj hadanakota variable ekak pass wenna one
@@ -102,24 +109,53 @@ namespace _3
             {
                 //meka target karanne first wage method hinda Action eka oi wage enne
                 _mainAction = mainAction;
+                // eg - mainAction("pamal");
                 _pipeTypes=new List<Type>();
+                
             }
 
             // pipe add karaganna ekak hadanna one. 
-            public void AddPipe(Type pipeType)      
+            public PipeBuilder AddPipe(Type pipeType)      
             {
                 // add karana eka pipe ekakda kiyala check karanna one
                 // if (!pipeType.GetTypeInfo().IsInstancesOfType(typeof(Pipe)))
                 // {
                 //     throw new Exception();
                 // }
+                
                 _pipeTypes.Add(pipeType);
+                return this;
+            }
 
+            public Action<string> CreatePipe(int index)
+            {
+                System.Console.WriteLine("index"+index);
+                if (index < _pipeTypes.Count-1)
+                {
+                    System.Console.WriteLine("index if"+index);
+                    var childPipeHandle=CreatePipe(index +1);
+                    System.Console.WriteLine("indexifafter"+index);
+                   // System.Console.WriteLine(childPipeHandle);
+                    var pipe=(Pipe)Activator.CreateInstance(_pipeTypes[index],childPipeHandle);
+                    System.Console.WriteLine("ifCreateistance :");
+                    return pipe.Handle;
+                }
+                else
+                {
+                    System.Console.WriteLine("indexelse"+index);
+                    //System.Console.WriteLine(_mainAction);
+                    var finalPipe=(Pipe)Activator.CreateInstance(_pipeTypes[index],_mainAction);
+                    System.Console.WriteLine("indexelse AFTER"+index);
+                    return finalPipe.Handle;
+                }
+                
             }
 
             public Action<string> Build(){
-                var pipe=Activator.CreateInstance(_pipeTypes[0],_mainAction);
-                return null;
+                //var pipe=(Pipe)Activator.CreateInstance(_pipeTypes[1],_mainAction);
+                return CreatePipe(0);
+               // return _mainAction;
+
             }
         }
     }
