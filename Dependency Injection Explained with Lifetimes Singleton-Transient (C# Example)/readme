@@ -1,0 +1,15 @@
+crate instance of a class.
+    internal- meka use karanna puluwan same assembly eke innawanam witharai.wena class ekak tina ekakata 
+    access karanna baha.
+------------------------------------------------------------------
+ACTIVATOR EKA USE KARALA KARANA EKA
+    var service=(HellowService)Activator.CreateInstance(typeof(HellowService));
+    var customer=(HellowCustomer)Activator.CreateInstance(typeof(HellowCustomer),service);
+        service.PrintHellow();
+        customer.CustomerPrint();
+    mekedi customer kiyana eka balanna. eke parameters dekak use karala tinawa.ekak type eka pennanna 
+    antith eka ctor eka widihata pass karanna.
+--------------------------------------------------------------------
+DEPENDANCY CONTARINER
+    meka use karanne dependancy tika daganna.ekata karanne type walin list ekak hadala ekata 
+    danawa.
