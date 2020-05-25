@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\Dependency Injection Explained with Lifetimes Singleton-Transient (C# Example)\\1\\1.csproj",
+      "projectUniqueName": "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\Dependency Injection Explained with Lifetimes Singleton-Transient (C# Example)\\1\\1.csproj",
       "projectName": "1",
-      "projectPath": "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\Dependency Injection Explained with Lifetimes Singleton-Transient (C# Example)\\1\\1.csproj",
+      "projectPath": "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\Dependency Injection Explained with Lifetimes Singleton-Transient (C# Example)\\1\\1.csproj",
       "packagesPath": "C:\\Users\\Chamath\\.nuget\\packages\\",
-      "outputPath": "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\Dependency Injection Explained with Lifetimes Singleton-Transient (C# Example)\\1\\obj\\",
+      "outputPath": "F:\\udemy\\.netDesignPatterns\\middleware\\vedioes\\work\\MiddlewareArchitecture\\Dependency Injection Explained with Lifetimes Singleton-Transient (C# Example)\\1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
