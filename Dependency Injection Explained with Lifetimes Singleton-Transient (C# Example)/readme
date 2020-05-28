@@ -13,3 +13,61 @@ ACTIVATOR EKA USE KARALA KARANA EKA
 DEPENDANCY CONTARINER
     meka use karanne dependancy tika daganna.ekata karanne type walin list ekak hadala ekata 
     danawa.
+
+-----------------------------------------------------------------------
+GENERICS
+    meka use karanne data type eka danne nati ewwa ekka wada karanna.
+        public void AddDependancy<T>()
+        {
+            // methanadit <T> use karanne ape use karana type danne nati hinda.
+            //() meke athule parameter denakota T type eken denna tinne.
+            _dependancy.Add(typeof(T));
+        }
+    methana T kiyala use karanne
+------------------------------------------------------------------------------
+DEPENDANCY RESOLVER
+    mekedi karanne instance ekak hadanawa aptia one class eka pass karala.
+    mekedi ctor ekata dependancy containe ekak pass karala eke function ekak hadanawa get service
+    kiyala eken instance ekak hadala denawa apita one class eka dunnahama.
+        internal class DependancyResolver
+    {
+        private  DependancyContainer _container;
+        public DependancyResolver(DependancyContainer container)
+        {
+            this._container = container;
+        }
+
+        public T GetService<T>(){
+            var type=this._container.GetDependancy(typeof(T));
+            return (T)Activator.CreateInstance(type);
+        }
+    }
+
+            //making container
+            var container = new DependancyContainer();
+            //container.AddDependancy(typeof(HellowCustomer));
+            container.AddDependancy(typeof(HellowService));
+            container.AddDependancy<HellowCustomer>();
+            
+            //making dependancy resolver
+            var resolver=new DependancyResolver(container);
+            var service=resolver.GetService<HellowService>();
+            service.PrintHellow();
+----------------------------------------------------------------------
+PARAMETER CONSTRUCTORS
+    var service=resolver.GetService<HellowCustomer>();
+        meka use karanna baha mokada HellowCustomer eke parameter ekak tina ctor ekak tinawa.
+        eka hinda use karanna baha.
+
+    habai meke eka ctor ekai tiyenna one.mokada single ctor thami balanne methanin.
+--------------------------------------------------------------------------
+2
+    LIFETIME OF A DEPENDANCY
+        mekedi use karana hama dependancy ekakama life time eka gana ahanawa.
+            enam ekak hadanawa singleton and trasient dekama dala.
+            rondom kiyala variable ekak hadanawa.ita passe karanne service deka thinak arana balanawa
+                singeleton nawa ekama random num eka thama use karanna one.kochchara services call karath.
+            
+            dependancy kiyala class ekak hadanawa.eke prop walata danne type ekai dependancyLifeTime ekai.
+        
+        dependancy container eke hadanawa singeton nam eka add karaganna func ekak.trasient eketh ehemai.

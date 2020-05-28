@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq; //meka use karanne GetConstructors().Single() ekata
 
-namespace _1
+namespace _2
 {
     class Program
     {
         static void Main(string[] args)
         {
-
             //Console.WriteLine("Hello World!");
             // var service=new HellowService();
             // service.PrintHellow();  
@@ -50,8 +47,8 @@ namespace _1
 
 
         }
+        
     }
-
     //dependancy resolver
     internal class DependancyResolver
     {
