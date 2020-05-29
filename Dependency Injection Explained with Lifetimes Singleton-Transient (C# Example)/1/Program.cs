@@ -95,7 +95,7 @@ namespace _1
     //dependancy container class
     internal class DependancyContainer
     {
-        //List<Type> _dependancy=new List<Type>();
+        List<Type> _dependancy=new List<Type>();
 
         
         public DependancyContainer()
@@ -116,12 +116,12 @@ namespace _1
         }
 
         //meka hadanne addsingleton ekai trasient ekai hadanne.
-        public void AddSingleton<T>(){
-            _dependancy.Add(new Dependancy(typeof(T),DepandancyLifeTime.singleton) );
-        }
-        public void AddTransient<T>(){
-            _dependancy.Add(new Dependancy(typeof(T),DepandancyLifeTime.transient) );
-        }
+        // public void AddSingleton<T>(){
+        //     _dependancy.Add(new Dependancy(typeof(T),DepandancyLifeTime.singleton) );
+        // }
+        // public void AddTransient<T>(){
+        //     _dependancy.Add(new Dependancy(typeof(T),DepandancyLifeTime.transient) );
+        // }
 
         public Type GetDependancy(Type type)
         {

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq; //meka use karanne GetConstructors().Single() ekata
 
 namespace _2
 {
@@ -22,10 +24,10 @@ namespace _2
             ///making container
             var container = new DependancyContainer();
             //container.AddDependancy(typeof(HellowCustomer));
-            container.AddDependancy<MessageService>();
-            container.AddDependancy(typeof(HellowService));
+            container.AddTransient<MessageService>();
+            container.AddTransient<HellowService>();
             
-            container.AddDependancy<HellowCustomer>();
+            container.AddSingleton<HellowCustomer>();
             
 
             //making dependancy resolver
@@ -92,25 +94,16 @@ namespace _2
     //dependancy container class
     internal class DependancyContainer
     {
-        //List<Type> _dependancy=new List<Type>();
+        List<Dependancy> _dependancy;
 
         
         public DependancyContainer()
         {
-            
+            _dependancy=new List<Dependancy>();
         }
-        public void AddDependancy(Type type)
-        {
-            
-            _dependancy.Add(type);
-        }
+        
 
-        public void AddDependancy<T>()
-        {
-            // methanadit <T> use karanne ape use karana type danne nati hinda.
-            //() meke athule parameter denakota T type eken denna tinne.
-            _dependancy.Add(typeof(T));
-        }
+    
 
         //meka hadanne addsingleton ekai trasient ekai hadanne.
         public void AddSingleton<T>(){
@@ -120,9 +113,9 @@ namespace _2
             _dependancy.Add(new Dependancy(typeof(T),DepandancyLifeTime.transient) );
         }
 
-        public Type GetDependancy(Type type)
+        public Dependancy GetDependancy(Type type)
         {
-            return _dependancy.Find(x => x.Name == type.Name);
+            return _dependancy.First(x => x.type.Name == type.Name);
         }
     }
 
