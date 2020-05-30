@@ -71,3 +71,13 @@ PARAMETER CONSTRUCTORS
             dependancy kiyala class ekak hadanawa.eke prop walata danne type ekai dependancyLifeTime ekai.
         
         dependancy container eke hadanawa singeton nam eka add karaganna func ekak.trasient eketh ehemai.
+------------------------------------------------------------------------------
+meke use karala tinawa objects.objects kiyala kiyanne onema ekak inherit wena base class 
+ekak.data type eka danne naththam apita eka use karanna puluwan.
+        dependancy eke hadanawa properties dekak.
+    meke set dependancy walata gihilla karanna one implementation ekak hadana eka.eke lifetime
+    check karala balanna one.
+        create implematation kiyala method ekak hadala eken objects apita one widihata balala hadaganna
+        thama balanne.
+    kohomada dependancy ekak create karanne.ekata karanna tinne func ekak pass karanawa.
+        crate implematation eke wenne eka instance ekai hadenne eka digatama use karanwa.

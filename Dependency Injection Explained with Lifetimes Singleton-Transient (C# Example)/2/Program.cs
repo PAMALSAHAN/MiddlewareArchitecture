@@ -24,10 +24,10 @@ namespace _2
             ///making container
             var container = new DependancyContainer();
             //container.AddDependancy(typeof(HellowCustomer));
-            container.AddTransient<MessageService>();
+            container.AddSingleton<MessageService>();
             container.AddTransient<HellowService>();
             
-            container.AddSingleton<HellowCustomer>();
+            container.AddTransient<HellowCustomer>();
             
 
             //making dependancy resolver
@@ -68,8 +68,10 @@ namespace _2
 
         public object Getservice(Type type){
             var dependancy = this._container.GetDependancy(type);
-
-            var constructor = dependancy.GetConstructors().Single();
+            //methana mulin tibbe dependancy.getcon.... kiyala
+            // bt api use karanne addsingeleton nisa karanna wenne 
+            var constructor = dependancy.type.GetConstructors().Single();
+            
             var parameter = constructor.GetParameters().ToArray();
             if (parameter.Length > 0)
             {
@@ -81,13 +83,37 @@ namespace _2
                     //ewath karanna thamai mewwa tinne
                     parameterImplementation[i] = Getservice(parameter[i].ParameterType);
                 }
-                return Activator.CreateInstance(type, parameterImplementation);
+
+                return CreateImplementation(dependancy,t=>Activator.CreateInstance(t, parameterImplementation));
+            
+                // return Activator.CreateInstance(type, parameterImplementation);
+                    // isslla tibbe meka meka pass wenawa. 
+                
                 //return karanne type ekai parameter implementation ekai. 
                 // api hamawelema danaganna one dependancy eka hadanna issella mona mage dependancy 
-
-
             }
-            return Activator.CreateInstance(type);
+            
+            return CreateImplementation(dependancy,t=>Activator.CreateInstance(t));
+            
+        }
+
+        public object CreateImplementation(Dependancy dependancy,Func<Type,object> factory){
+
+            if (dependancy.Implement)
+            {
+                return dependancy.Implementation;
+            }
+            // var implementation= Activator.CreateInstance(dependancy.type);
+            //meka replace wana eka wenne. 
+            var implementation=factory(dependancy.type); 
+            //dependancy eke type eka tinne dependancy.type wala. 
+
+
+            if(dependancy.deplifetime==DepandancyLifeTime.singleton){
+                dependancy.AddImplmentation(implementation);
+            }
+            return implementation;
+            
         }
     }
 
@@ -145,16 +171,19 @@ namespace _2
     internal class HellowService
     {
         private  MessageService _message;
+        private int _random;
+
         public HellowService(MessageService message)
         {
             this._message = message;
+            _random=new Random().Next();
         }
 
         public void PrintHellow()
         {
             //System.Console.WriteLine("hellow from hellowService");
             _message.PrintMessage();
-            System.Console.WriteLine(_message.PrintMessage());
+            System.Console.WriteLine("hellowservice :"+_random +_message.PrintMessage());
         }
     }
 
@@ -186,5 +215,13 @@ namespace _2
         }
         public Type type{get;set;}
         public DepandancyLifeTime deplifetime{get;set;}
+
+        public object Implementation{get;set;}
+        public bool Implement { get; set; }
+
+        public void AddImplmentation(object i){
+            Implementation=i;
+            Implement=true;
+        }
     }
 }
