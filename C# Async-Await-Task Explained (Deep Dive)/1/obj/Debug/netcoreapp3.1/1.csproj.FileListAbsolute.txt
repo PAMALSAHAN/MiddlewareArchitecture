@@ -1,0 +1,11 @@
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\MiddlewareArchitecture\C# Async-Await-Task Explained (Deep Dive)\1\bin\Debug\netcoreapp3.1\1.exe
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\MiddlewareArchitecture\C# Async-Await-Task Explained (Deep Dive)\1\bin\Debug\netcoreapp3.1\1.deps.json
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\MiddlewareArchitecture\C# Async-Await-Task Explained (Deep Dive)\1\bin\Debug\netcoreapp3.1\1.runtimeconfig.json
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\MiddlewareArchitecture\C# Async-Await-Task Explained (Deep Dive)\1\bin\Debug\netcoreapp3.1\1.runtimeconfig.dev.json
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\MiddlewareArchitecture\C# Async-Await-Task Explained (Deep Dive)\1\bin\Debug\netcoreapp3.1\1.dll
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\MiddlewareArchitecture\C# Async-Await-Task Explained (Deep Dive)\1\bin\Debug\netcoreapp3.1\1.pdb
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\MiddlewareArchitecture\C# Async-Await-Task Explained (Deep Dive)\1\obj\Debug\netcoreapp3.1\1.csprojAssemblyReference.cache
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\MiddlewareArchitecture\C# Async-Await-Task Explained (Deep Dive)\1\obj\Debug\netcoreapp3.1\1.AssemblyInfoInputs.cache
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\MiddlewareArchitecture\C# Async-Await-Task Explained (Deep Dive)\1\obj\Debug\netcoreapp3.1\1.AssemblyInfo.cs
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\MiddlewareArchitecture\C# Async-Await-Task Explained (Deep Dive)\1\obj\Debug\netcoreapp3.1\1.dll
+F:\udemy\.netDesignPatterns\middleware\vedioes\work\MiddlewareArchitecture\C# Async-Await-Task Explained (Deep Dive)\1\obj\Debug\netcoreapp3.1\1.pdb
