@@ -2,3 +2,12 @@ https://medium.com/p/b5ee372dac66/edit
 1 - hariyatama wena widiha
 2-asynchronous 
     Asynchronous programming is a means of parallel programming in which a unit of work runs separately from the main application thread and notifies the calling thread of its completion, failure or progress.
+
+
+
+https://medium.com/@pamalsahan/a-sync-await-task-explanation-using-c-b5ee372dac66
+
+meke sidda wenne async dapugaman thread deka thunaka duwanawa.bt task eka ganna thanak awoth eka gannakan palleha tika 
+wada karanne nathiwa yanawa.so keep that on mind.
+    await key word eka dammahama eken code eka part walata bedenawa.eka thama meken karanne.
+        thread pool eken apita thread aragena ewwata eka eka task assign karana eka thma karanne.
